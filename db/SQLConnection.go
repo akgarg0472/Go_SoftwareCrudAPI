@@ -9,21 +9,20 @@ import (
 
 var database *sql.DB
 
-func initDatabase() {
-	datasource := getDatasource()
-	println("Datasource is:", datasource)
-
-	db, err := sql.Open("mysql", datasource)
+func InitDbConnection() {
+	db, err := sql.Open("mysql", getDatasource())
 
 	if err != nil {
-		panic(err)
+		panic(err.Error())
 	}
+
+	db.SetConnMaxLifetime(time.Minute * 3)
+	db.SetMaxOpenConns(10)
+	db.SetMaxIdleConns(15)
 
 	database = db
 
-	db.SetConnMaxLifetime(time.Minute * 5)
-	db.SetMaxOpenConns(10)
-	db.SetMaxIdleConns(15)
+	initDao()
 }
 
 func getDatasource() string {
@@ -35,12 +34,6 @@ func getDatasource() string {
 	return username + ":" + password + "@tcp(" + dbUrl + ")/" + dbName
 }
 
-func ConnectDatabase() (*sql.DB, bool) {
-	initDatabase()
-
-	if database != nil {
-		return nil, false
-	}
-
-	return database, true
+func initDao() {
+	initSoftwareDao()
 }
