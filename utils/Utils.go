@@ -26,3 +26,7 @@ func GenerateRandomId() string {
 
 	return newUUID.String()
 }
+
+func IsStringValid(val *string) bool {
+	return val != nil && *val != ""
+}
