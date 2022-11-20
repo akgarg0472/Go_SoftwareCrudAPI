@@ -11,8 +11,8 @@ func SoftwareRouter() *mux.Router {
 
 	router.HandleFunc("/api/v1/", controller.SoftwareHome).Methods(http.MethodGet)
 	router.HandleFunc("/api/v1/softwares", controller.AddSoftware).Methods(http.MethodPost)
-	router.HandleFunc("/api/v1/softwares", controller.GetSoftware).Methods(http.MethodGet)
-	router.HandleFunc("/api/v1/softwares/{id}", controller.GetAllSoftwares).Methods(http.MethodGet)
+	router.HandleFunc("/api/v1/softwares", controller.GetAllSoftwares).Methods(http.MethodGet)
+	router.HandleFunc("/api/v1/softwares/{id}", controller.GetSoftware).Methods(http.MethodGet)
 	router.HandleFunc("/api/v1/softwares/{id}", controller.UpdateSoftware).Methods(http.MethodPut)
 	router.HandleFunc("/api/v1/softwares/{id}", controller.DeleteSoftware).Methods(http.MethodDelete)
 

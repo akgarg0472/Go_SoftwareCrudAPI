@@ -84,7 +84,7 @@ func FindAll() ([]model.Software, error) {
 	return softwares, nil
 }
 
-func UpdateOne(software model.Software) (bool, error) {
+func UpdateOne(id string, software model.Software) (bool, error) {
 	stmt, err := database.Prepare("UPDATE " + table + " SET category=?, title=?, description=? WHERE id=?")
 
 	if err != nil {
@@ -93,26 +93,25 @@ func UpdateOne(software model.Software) (bool, error) {
 
 	defer stmt.Close()
 
-	updateResult, updateError := stmt.Exec(software.Category, software.Title, software.Description, software.Id)
+	_, updateError := stmt.Exec(software.Category, software.Title, software.Description, id)
 
 	if updateError != nil {
 		return false, updateError
 	}
 
-	rowsAffected, _ := updateResult.RowsAffected()
-
-	return rowsAffected == 1, nil
+	return true, nil
 }
 
 func Delete(id string) (bool, error) {
 	stmt, err := database.Prepare("DELETE FROM " + table + " WHERE id=?")
+
 	if err != nil {
 		return false, err
 	}
-
 	defer stmt.Close()
 
 	queryResult, err := stmt.Exec(id)
+
 	if err != nil {
 		return false, err
 	}

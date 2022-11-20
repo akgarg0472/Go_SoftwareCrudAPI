@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "bb58fe8e-5ce5-4826-8487-4f852c599e76",
+		"name": "GoLang REST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13677338"
+	},
+	"item": [
+		{
+			"name": "Get All Softwares",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/softwares",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"softwares"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Software",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"category\": \"Mobile App\",\r\n    \"title\": \"GChat\",\r\n    \"description\": \"Mobile app for realtime chatting and media sharing\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/softwares",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"softwares"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Record",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"category\": \"Web App\",\r\n    \"title\": \"Netflix Video Player\",\r\n    \"description\": \"web application to demonstrate the real time media streaming\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/softwares/01d6c4c3-68ff-11ed-ad87-58a023d4b067",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"softwares",
+						"01d6c4c3-68ff-11ed-ad87-58a023d4b067"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Software By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/softwares/01d6c4c3-68ff-11ed-ad87-58a023d4b067",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"softwares",
+						"01d6c4c3-68ff-11ed-ad87-58a023d4b067"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Record",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/softwares/465d593f-6902-11ed-819d-58a023d4b067",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"softwares",
+						"465d593f-6902-11ed-819d-58a023d4b067"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
